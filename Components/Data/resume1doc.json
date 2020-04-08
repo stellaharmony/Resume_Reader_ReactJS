@@ -1,0 +1,275 @@
+[{
+    "add_info": {
+        "preferred_job_position": [
+            "Web Developer",
+            "Web Applications",
+            "Senior Web Developer",
+            "Web Development",
+            "Applications development manager"
+        ],
+        "training": [],
+        "education": [
+            {
+                "school": "",
+                "description": [],
+                "degree": "",
+                "level": "",
+                "major": "",
+                "course": "B.S. Business Administration",
+                "location": "",
+                "date": [
+                    "1996-04-05",
+                    "1999-04-05"
+                ]
+            },
+            {
+                "school": "Butte College",
+                "description": [
+                    ", A.A."
+                ],
+                "degree": "",
+                "level": "",
+                "major": "",
+                "course": "",
+                "location": "",
+                "date": [
+                    "1995-04-05",
+                    "1996-04-05"
+                ]
+            }
+        ],
+        "skills": [
+            "DOS",
+            "UNIX",
+            "2001",
+            "2000",
+            "2005"
+        ],
+        "experience": [
+            {
+                "description": [
+                    "IS  for a large  vendor or  in the  space.",
+                    "\u2013 Current"
+                ],
+                "company": "ATS ASP HR",
+                "job": "Applications development manager",
+                "location": "",
+                "date": [
+                    "2004-10-05"
+                ],
+                "industry": "Engineering"
+            },
+            {
+                "description": [
+                    "Director of",
+                    "Managed emailketing campaigns to attract new sales and retain customers.",
+                    "Add new technology to website to manage leads, increase response time and provide pertinent inforon to new customers.",
+                    "Convert current HRIS from VB to ASP to create complete web based solution.",
+                    "Added custom encryption coding to SQL and ASP web applications.",
+                    "Designed custom applicant tracking ASP program for large client.",
+                    "Designed customer support application to receive requests \/ files from clients, divert to appropriate support staff, and track issue from open to resolve.",
+                    "Supervised 15 employees.",
+                    "ABC, Del , CA",
+                    "ch  \u2013"
+                ],
+                "company": "Development",
+                "job": "Web Applications",
+                "location": {
+                    "city": "mati",
+                    "name": "mati, Philippines",
+                    "country": "Philippines",
+                    "lon": 119.7864,
+                    "prefix": "",
+                    "street": "",
+                    "lat": 16.0718
+                },
+                "date": [
+                    "2003-03-05",
+                    "2004-03-05"
+                ],
+                "industry": ""
+            },
+            {
+                "description": [
+                    "Developed special package sales on website for the Mighty Ducks of Anaheim.",
+                    "Managed emailketing campaigns for Mighty Ducks of Anaheim to generate interest in season passes, group sales, and special promotions.",
+                    "Developed event registration sites for Mazda, Mercedes, Volvo, Cadillac & Mitsubishi.",
+                    "Developed web-based email tracking system for bulk mail sends to track all consumer actions upon opening an email sent from the system.",
+                    "Developed analytical reporting tool for clients to access results of bulk mail sends.",
+                    "up \/ deployed bulk mail campaigns for various companies through Exact Target.",
+                    "Consulted with clients about bulk mail results to help find their target audience.",
+                    "Helped customers to build their email database through various bulk mail promotions.",
+                    "Developed web-based contest applications for various seasonalketing campaigns that included Emailketing, Web Registration, Email Tracking, and Contest Reporting for the State of Connecticut Tourism Department.",
+                    "Developed Meeting Plannerketing tool for customers to plan \/ book meetings at any of over  hotels in Connecticut for the Connecticut Tourism Department.",
+                    "Priy contact for Automotive Ride & Driveketing Campaigns.",
+                    "DBA SQL Server 7 & 0."
+                ],
+                "company": "DBA",
+                "job": "Senior Web Developer",
+                "location": "",
+                "date": [
+                    "2000-09-05"
+                ],
+                "industry": "Information Systems"
+            },
+            {
+                "description": [
+                    "Contractor \u2013 ",
+                    "Designed & developed web-based gift fulfillment system for use by  and their affiliates to intake consumer inforon from bulk mail sends, accept orders from consumers who completed their incentive program, and to report on all activity.",
+                    "Designed & developed web-based event registration systems for Mercedes and Volvo including comprehensive reporting on system activity.",
+                    "Priy contact for Automotive Ride & Driveketing Campaigns."
+                ],
+                "company": "Mazda",
+                "job": "Web Development",
+                "location": {
+                    "city": "mati",
+                    "name": "mati, Philippines",
+                    "country": "Philippines",
+                    "lon": 119.7864,
+                    "prefix": "",
+                    "street": "",
+                    "lat": 16.0718
+                },
+                "date": [
+                    "2002-05-05",
+                    "2003-03-05"
+                ],
+                "industry": "Information Systems"
+            },
+            {
+                "description": [
+                    "\/ ior",
+                    "Designed and developed reporting system for use by 200+ customers to retrieve analytical analysis of their bulk mail campaigns.",
+                    "Designed & developed sales reporting tool to analyze and present inforon about industry and client specific productivity of emailketing campaigns.",
+                    "Engineered various email campaigns to provide comprehensive tracking.",
+                    "Priy contact for Automotive Ride & Driveketing Campaigns.",
+                    "Designed & developed time keeping \/ project tracking system for use by all employees.",
+                    "ior DBA SQL Server ."
+                ],
+                "company": "DBA",
+                "job": "Web Developer",
+                "location": {
+                    "city": "mati",
+                    "name": "mati, Philippines",
+                    "country": "Philippines",
+                    "lon": 119.7864,
+                    "prefix": "",
+                    "street": "",
+                    "lat": 16.0718
+                },
+                "date": [
+                    "2000-07-05"
+                ],
+                "industry": "Information Systems"
+            }
+        ],
+        "contact_inlocation": {
+            "mobile": "2335555446",
+            "country": "Philippines",
+            "code": "63",
+            "landphone": "",
+            "nationality": "Filipino"
+        },
+        "preferred_industry": [
+            "Engineering",
+            "Information Systems"
+        ],
+        "otherskills": [
+            "Oracle 9i",
+            "Microsoft Visual Basic .NET",
+            "Project Management Institute",
+            "Microsoft SQL Server Administration",
+            "Project Management Professional",
+            "Operating Systems: Windows 98\/2000\/NT\/XP\/2003",
+            "Databases: SQL Server 6.5\/7\/2000",
+            "Access 97\/2000"
+        ]
+    },
+    "unhandled": [
+        "http",
+        "Summary",
+        "Objective",
+        "Experience",
+        "Technical",
+        "Databases",
+        "Operating Systems",
+        "MINOR",
+        "GPA"
+    ],
+    "general_info": {
+        "edu_college": "",
+        "weight": "",
+        "job_dept": "",
+        "edu_secondary": "",
+        "train_school": "",
+        "linkedin": "",
+        "edu_degree": "",
+        "job_industry": "",
+        "skype": "",
+        "homeaddress": "",
+        "placeofbirth": "",
+        "tin": "",
+        "edu_graduated": "",
+        "issue_date": "",
+        "maritalstatus": "",
+        "nbi": "",
+        "religion": "",
+        "presentaddress": "Summary:Development manager with 10 years of hands-on experience, specializing in Internet marketing and data-driven web sites",
+        "edu_collage": "",
+        "date_expire": "",
+        "char_ref": "",
+        "edu_elementary": "",
+        "location": "",
+        "edu_course": "",
+        "drivinglicense": "",
+        "email": "abc@yamoo.com",
+        "website": "",
+        "passport": "",
+        "company": "",
+        "visa_status": "",
+        "landphone": "",
+        "sss": "",
+        "edu_level": "",
+        "facebook": "",
+        "issue_place": "",
+        "date": "ABC",
+        "nationality": "",
+        "height": "",
+        "nickname": "",
+        "job_avail": "",
+        "mothername": "",
+        "job_reasonleft": "",
+        "name": "Mark Diggens",
+        "language": "",
+        "mobile": "2335555446",
+        "gender": "",
+        "age": "",
+        "job": "",
+        "birthdate": "",
+        "edu_school": "",
+        "fathername": "",
+        "country": "",
+        "edu_schoolyear": "",
+        "job_preferred": ""
+    },
+    "result": {
+        "section_personalinfo": [
+            "RESUME\n\nMark Diggens\n\n455 St, ABC, CA 5454\nabc@yamoo.com\n(233) 555-5446\nhttp:\/\/www.linkedin.com\/in\/abc\n\n\n"
+        ],
+        "section_skill": [
+            "\n\nDatabases: SQL Server 6.5\/7\/2000, Oracle 9i, Access 97\/2000\n\n\nOperating Systems: Windows 98\/2000\/NT\/XP\/2003, UNIX, DOS\n",
+            "Project Management Professional, Project Management Institute, 2005\nMicrosoft Visual Basic .NET, 2001\nMicrosoft SQL Server Administration, 2000\n"
+        ],
+        "section_workexp": [
+            "HRIS Applications development manager for a large ATS vendor or ASP in the HR space.\n",
+            "October 2004 \u2013 Current\n\n\nDirector of Web Applications Development\nManaged email marketing campaigns to attract new sales and retain customers.\nAdd new technology to website to manage leads, increase response time and provide pertinent information to new customers.\nConvert current HRIS from VB to ASP to create complete web based solution.\nAdded custom encryption coding to SQL and ASP web applications.\nDesigned custom applicant tracking ASP program for large client.\nDesigned customer support application to receive requests\/files from clients, divert to appropriate support staff, and track issue from open to resolve.\nSupervised 15 employees.\n\nABC, Del Mar, CA\nMarch 2003 \u2013 December 2004\n\n\nSenior Web Developer\/DBA\nDeveloped special package sales on website for the Mighty Ducks of Anaheim.\nManaged email marketing campaigns for Mighty Ducks of Anaheim to generate interest in season passes, group sales, and special promotions.\nDeveloped event registration sites for Mazda, Mercedes, Volvo, Cadillac & Mitsubishi.\nDeveloped web-based email tracking system for bulk mail sends to track all consumer actions upon opening an email sent from the system.\nDeveloped analytical reporting tool for clients to access results of bulk mail sends.\nSet up\/deployed bulk mail campaigns for various companies through Exact Target.\nConsulted with clients about bulk mail results to help find their target audience.\nHelped customers to build their email database through various bulk mail promotions.\nDeveloped web-based contest applications for various seasonal marketing campaigns that included Email Marketing, Web Registration, Email Tracking, and Contest Reporting for the State of Connecticut Tourism Department.\nDeveloped Meeting Planner marketing tool for customers to plan\/book meetings at any of over 200 hotels in Connecticut for the Connecticut Tourism Department.\nPrimary contact for Automotive Ride & Drive Marketing Campaigns.\nDBA SQL Server 7 & 2000.\n\nABC\nMay 2002 \u2013 March 2003\nContractor \u2013 Web Development\nDesigned & developed web-based gift fulfillment system for use by Mazda and their affiliates to intake consumer information from bulk mail sends, accept orders from consumers who completed their incentive program, and to report on all activity.\nDesigned & developed web-based event registration systems for Mercedes and Volvo including comprehensive reporting on system activity.\nPrimary contact for Automotive Ride & Drive Marketing Campaigns.\n\nABC\nMay 2000 \u2013 April 2002\nWeb Developer\/Junior DBA\nDesigned and developed reporting system for use by 200+ customers to retrieve analytical analysis of their bulk mail campaigns.\nDesigned & developed sales reporting tool to analyze and present information about industry and client specific productivity of email marketing campaigns.\nEngineered various email campaigns to provide comprehensive tracking.\nPrimary contact for Automotive Ride & Drive Marketing Campaigns.\nDesigned & developed time keeping\/project tracking system for use by all employees.\nJunior DBA SQL Server 7\/2000.\n"
+        ],
+        "section_language": [
+            "Fluent in Pashto, Urdu and French.\n\nMilitary Service\nFIRST LIEUTENANT, US Army, Vietnam theatre, 1966-1967"
+        ],
+        "section_edu": [
+            "",
+            "1996 - 1999\n\nB.S. Business Administration\n\nMINOR:  American History\n\nGPA:  4.66\/6.0\n\n\n\nButte College, A.A.\n1995 - 1996\n"
+        ]
+    }
+}]
