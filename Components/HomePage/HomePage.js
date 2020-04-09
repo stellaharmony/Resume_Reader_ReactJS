@@ -40,20 +40,34 @@ getresume(){
    }
 
    file_change(e){
-       this.setState({file_location:e.target.value });
-
+       this.setState({file_location:e.target.files[0] });
    }
 
    onSubmit(e){
      e.preventDefault();
-     console.log(this.state.file_location);
-     console.log(  $('#file').value);
+
+     const data = new FormData()
+     data.append('file', this.state.file_location)
+     axios.post("http://localhost:5000/", data, {
+      })
+      .then(res => { // then print response status
+        console.log(res.statusText)
+      })
+    //  console.log("your file location: ./uploads/"+this.state.file_location.name);
+
+
+    let filePath="./uploads/"+this.state.file_location.name;
+    let filesize=this.state.file_location.size;
      const fileupdata = {
        credentials:this.state.credentials,
-       filePath:this.state.file_location
+       filePath:filePath,
+       filesize:filesize
      }
      axios.post("http://localhost:5000/cloudsend",fileupdata)
    	  .then(res => console.log(res.data));
+
+let bucketname="brainchangeacademy";
+console.log("Download URL:"+this.state.credentials.downloadUrl+"/file/"+bucketname+"/"+this.state.file_location.name);
 
   //    const resume = {
 	//       name:"",
@@ -81,7 +95,7 @@ getresume(){
                     <div className="form-group">
                         <label className="control-label" htmlFor="file">Select The Resume:</label>
                         <div className="col-sm-10">
-                          <input type="file" id="file" onChange={this.file_change} className="form-control" accept=".pdf,.doc,.docx" required id="file"/>
+                          <input type="file" name="file" onChange={this.file_change} className="form-control" accept=".pdf,.doc,.docx" required id="file"/>
                         </div>
                       </div>
                       <div className="form-group">
