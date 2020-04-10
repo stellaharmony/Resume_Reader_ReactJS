@@ -1,14 +1,15 @@
+'use strict'
 const express=require('express');
 var app=express();
 const bodyparser=require('body-parser');
-app.use(bodyparser.urlencoded({     // to support URL-encoded bodies
+app.use(bodyparser.urlencoded({
   extended: true
 }));
 app.use(bodyparser.json());
-
 const cors = require('cors')
 app.use(cors());
 var axios=require('axios');
+
 var accountId = '0002bcb969d9a400000000001';
 var applicationKey = 'K000JjkD1Ovc+ec9DSQcYyajD3pVtRs';
 var credentials;
@@ -20,7 +21,6 @@ var fs = require('fs');
 var bucketId = "e27b4c5b49f649bd791a0410";
 
 const multer = require('multer');
-
 var storage = multer.diskStorage({
       destination: function (req, file, cb) {
       cb(null, 'uploads')
@@ -35,7 +35,23 @@ app.listen(5000,()=>{
   console.log("File Server Started at port 5000");
 });
 
+//Get Resume Parsed Data In JSON Format
+const getresumejson=async url=>{
+  const response=await axios.get(url);
+  return (response.data)
+}
 
+
+app.post('/resumejsondata', (req, res) => {
+let params = req.body;
+let url="http://cvautomation.com/parse/?client_id=MjA5MzI&client_secret=f3c3649f013dd99502e6777f2a14af63&fl="+params.downlodingurl+"&l=en";
+getresumejson(url).then(function(result) {
+   console.log(result);
+   setTimeout(function(){res.send(result);}, 60000);
+})
+});
+
+//Load the Resume in Local Storage Folder
 app.post('/',function(req, res) {
 
     upload(req, res, function (err) {
@@ -52,11 +68,11 @@ app.post('/',function(req, res) {
 
 
 
-
-
-
-
-
+//Authenticate the Cloud Storage Credentials
+// const authenticatecloud=async url=>{
+//   const response=await axios.post(url);
+//   return (response.data)
+// }
 
 app.get('/cloudauth',(res,req)=>{
               axios.post("https://api.backblazeb2.com/b2api/v2/b2_authorize_account",{},
@@ -81,18 +97,18 @@ app.get('/cloudauth',(res,req)=>{
 });
 
 
+
+//Send the Resume from local storage to cloud
 app.post('/cloudsend', (req, res) => {
    let params = req.body;
    let filePath=params.filePath;
    let fileSize=params.filesize;
-//   console.log(params);
               axios.post(params.credentials.apiUrl + '/b2api/v1/b2_get_upload_url',
               {
                  bucketId: bucketId
               },
               { headers: { Authorization: params.credentials.authorizationToken } })
               .then(function (response) {
-                console.log(response.data);
                        var uploadUrl = response.data.uploadUrl;
                        var uploadAuthorizationToken = response.data.authorizationToken;
                        var source = fs.readFileSync(filePath)
@@ -112,17 +128,17 @@ app.post('/cloudsend', (req, res) => {
                                }
                            }
                        ).then(function (response) {
-                           console.log(response); // successful response
                            fs.unlink(filePath, (err) => {
                                 if (err) throw err;
                             });
+                           res.send(response.data);
 
                        }).catch(function (err) {
-                           console.log(err); // an error occurred
+                           console.log(err);
                        });
                })
               .catch(function (err) {
-                 console.log(err); // an error occurred
+                 console.log(err);
                });
 
 });

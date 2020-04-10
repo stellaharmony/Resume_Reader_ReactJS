@@ -5,31 +5,23 @@ import './Header.css';
 class Header extends Component{
   constructor(props) {
        super(props);
-       this.state = {
-          data: 'Initial data...'
-       }
-       this.updateState = this.updateState.bind(this);
     };
-    updateState() {
-       this.setState({data: 'Data updated...'})
-       console.log(this.state.data);
-    }
-
+  
    render(){
       return(
 
          <div>
-            <nav className="navbar navbar-expand-sm bg-primary navbar-dark">
-  <ul className="navbar-nav">
-  <li className="nav-item active">
-  <h2 className="text-secondary">Brain Change Knowledge Academy</h2>
-  </li>
-  </ul>
-</nav>
-<div>
-<HomePage/>
-</div>
-</div>
+            <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+                <ul className="navbar-nav">
+                <li className="nav-item active">
+                <h2 className="text-light">Brain Change Knowledge Academy</h2>
+                </li>
+                </ul>
+            </nav>
+            <div>
+            <HomePage/>
+            </div>
+        </div>
       );
    }
 }

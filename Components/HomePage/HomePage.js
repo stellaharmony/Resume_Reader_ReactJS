@@ -1,61 +1,70 @@
 import React, { Component,authenticate } from 'react';
 import axios from 'axios';
 import data1 from '../Data/resume1doc.json';
-
+import "../HomePage/HomePage.css";
 class HomePage extends Component{
 
   constructor(props) {
        super(props);
+
        this.onSubmit = this.onSubmit.bind(this);
        this.file_change = this.file_change.bind(this);
        this.state = {
            file_location: '',
-           credentials: ''
+           credentials: '',
+           resdata:[],
+           loading:false
        }
    }
 getresume(){
   axios.get('http://localhost:3000/resdata')
         .then(res => {
-          console.log("resumedb",res.data);
+        this.setState({resdata:res.data});
         })
+}
 
+getauth(){
   axios.get("http://localhost:5000/cloudauth")
   .then(res => {
     this.setState({credentials:res.data });
     console.log("cloud",res.data);
   })
-
 }
+
    componentDidMount(){
       this.getresume();
-      $('#table_id').DataTable({
-  dom: 'Bfrtip',
-  buttons: [
-    'copyHtml5',
-               'excelHtml5',
-               'csvHtml5',
-               'pdfHtml5'
-  ]
-});
+      this.getauth();
+      setTimeout(function(){
+        $('#table_id').DataTable({
+        dom: 'Bfrtip',
+        destroy:true,
+        buttons: [
+          'copyHtml5',
+          'excelHtml5',
+          'csvHtml5',
+          'pdfHtml5'
+          ]
+        });
+    }, 300);
    }
 
    file_change(e){
-       this.setState({file_location:e.target.files[0] });
+       this.setState({file_location:e.target.files[0]});
    }
 
    onSubmit(e){
      e.preventDefault();
-
+     this.setState({loading:true});
+//Save The Uploaded File In Local Folder
      const data = new FormData()
      data.append('file', this.state.file_location)
      axios.post("http://localhost:5000/", data, {
       })
-      .then(res => { // then print response status
+      .then(res => {
         console.log(res.statusText)
       })
-    //  console.log("your file location: ./uploads/"+this.state.file_location.name);
 
-
+//Upload The Stored File on Cloud
     let filePath="./uploads/"+this.state.file_location.name;
     let filesize=this.state.file_location.size;
      const fileupdata = {
@@ -64,29 +73,41 @@ getresume(){
        filesize:filesize
      }
      axios.post("http://localhost:5000/cloudsend",fileupdata)
-   	  .then(res => console.log(res.data));
+   	 .then(res => console.log(res.data));
 
+//Request the JSON Parsed Data From the Uploaded Resume File
 let bucketname="brainchangeacademy";
-console.log("Download URL:"+this.state.credentials.downloadUrl+"/file/"+bucketname+"/"+this.state.file_location.name);
+let downloadurl=this.state.credentials.downloadUrl+"/file/"+bucketname+"/"+this.state.file_location.name;
+let filedownlink = {
+  downlodingurl:downloadurl
+}
+axios.post("http://localhost:5000/resumejsondata",filedownlink)
+ .then(res =>
+{
+//  this.setState({resjsondata:res.data })
+  let param=res.data;
 
-  //    const resume = {
-	//       name:"",
-  //       email:"",
-  //       phone:"",
-  //       linkedin:"",
-  //       no_images:2,
-  //       no_text_lines:3,
-  //       no_text_characters:4,
-  //       font_family:"",
-  //       font_size:3,
-  //       no_tables:4
-	// }
-  // axios.post('http://localhost:3000/resdata', resume)
-	// .then(res => console.log(res.data));
-
+//  Save the Received Data In MYSQL Database
+     const resume = {
+        name:param.parsed.general_info.name,
+        email:param.parsed.general_info.email,
+        phone:param.parsed.general_info.mobile,
+        linkedin:param.parsed.general_info.linkedin,
+        no_images:2,
+        no_text_lines:3,
+        no_text_characters:4,
+        font_family:"Anyfont",
+        font_size:3,
+        no_tables:4
+  }
+  axios.post('http://localhost:3000/resdata', resume)
+  .then(res => this.setState({loading:false}));
+});
+// this.setState({loading:false});
 }
 
    render(){
+
       return(
          <div>
             <h1 className="text-center">Resume Parser</h1>
@@ -95,12 +116,13 @@ console.log("Download URL:"+this.state.credentials.downloadUrl+"/file/"+bucketna
                     <div className="form-group">
                         <label className="control-label" htmlFor="file">Select The Resume:</label>
                         <div className="col-sm-10">
-                          <input type="file" name="file" onChange={this.file_change} className="form-control" accept=".pdf,.doc,.docx" required id="file"/>
+                          <input type="file" name="file" onChange={this.file_change} className="form-control" accept=".pdf,.doc,.docx,.txt" required id="file"/>
                         </div>
                       </div>
                       <div className="form-group">
-                        <div className="col-sm-offset-2 col-sm-10">
-                          <button type="submit" className="btn btn-success">Submit</button>
+                        <div className="col-sm-offset-2 col-sm-9">
+                          <button type="submit" disabled={this.state.loading} className="btn btn-success">Submit</button>
+                            { this.state.loading && <img className="loading" src="./Components/Data/loading.gif" /> }
                         </div>
                       </div>
                  </form>
@@ -121,17 +143,17 @@ console.log("Download URL:"+this.state.credentials.downloadUrl+"/file/"+bucketna
                               </tr>
                           </thead>
                           <tbody>{
-                          data1.map((row,i)=>{
+                        this.state.resdata.map((row,i)=>{
                               return(<tr key={i}>
-                                  <td>{row.general_info.name}</td>
-                                  <td>{row.general_info.email}</td>
-                                  <td>{row.general_info.mobile}</td>
-                                  <td>{row.general_info.linkedin}</td>
-                                  <td>Row 1 Data 2</td>
-                                  <td>Row 1 Data 2</td>
-                                  <td>Row 1 Data 2</td>
-                                  <td>Row 1 Data 2</td>
-                                  <td>Row 1 Data 2</td>
+                                  <td>{row.name}</td>
+                                  <td>{row.email}</td>
+                                  <td>{row.phone}</td>
+                                  <td>{row.linkedin}</td>
+                                  <td>{row.no_images}</td>
+                                  <td>{row.no_text_lines}</td>
+                                  <td>{row.no_text_characters}</td>
+                                  <td>{row.font_family}{row.font_size}</td>
+                                  <td>{row.no_tables}</td>
                               </tr>)
                             })}
                           </tbody>
