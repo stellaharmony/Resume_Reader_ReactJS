@@ -31,7 +31,7 @@ getauth(){
   })
 }
 componentDidUpdate(){
-
+  this.getresume();
 }
 
    componentDidMount(){
@@ -58,7 +58,8 @@ componentDidUpdate(){
 
    onSubmit(e){
      e.preventDefault();
-     this.setState({loading:true});
+//     this.setState({loading:true});
+    $("#spinner").show();
 //Save The Uploaded File In Local Folder
      const data = new FormData()
      data.append('file', this.state.file_location)
@@ -67,6 +68,12 @@ componentDidUpdate(){
       .then(res => {
         console.log(res.statusText)
       })
+      .catch(function (err) {
+          console.log(err);
+          $('#spinner').hide();
+          $('#failure').show();
+
+      });
 
 //Upload The Stored File on Cloud
     let filePath="./uploads/"+this.state.file_location.name;
@@ -77,7 +84,13 @@ componentDidUpdate(){
        filesize:filesize
      }
      axios.post("http://localhost:5000/cloudsend",fileupdata)
-   	 .then(res => console.log(res.data));
+   	 .then(res => console.log(res.data))
+     .catch(function (err) {
+         console.log(err);
+         $('#spinner').hide();
+         $('#failure').show();
+
+     });
 
 //Request the JSON Parsed Data From the Uploaded Resume File
 let bucketname="brainchangeacademy";
@@ -105,31 +118,28 @@ axios.post("http://localhost:5000/resumejsondata",filedownlink)
         no_tables:4
   }
   axios.post('http://localhost:3000/resdata', resume)
-  .then(res =>
-     this.setState(prevState => ({
-     loading: !prevState.loading
-   }))
-
-   )
+  .then(res =>{
+    $('#spinner').hide();
+    $('#success').show();
+  })
   .catch(function (err) {
       console.log(err);
-        this.setState(prevState => ({
-        loading: !prevState.loading
-      }));
+      $('#spinner').hide();
+      $('#failure').show();
+
   });
+}).catch(function (err) {
+    console.log(err);
+    $('#spinner').hide();
+    $('#failure').show();
+
 });
 // this.setState({loading:false});
 }
 
    render(){
      let info='';
-     let loader='';
-     if(this.state.loading)
-     {
-       loader=<img className="loading" src="./Components/Data/loading.gif" />;
-     }else{
-       loader='';
-     }
+
 
       return(
          <div>
@@ -140,13 +150,16 @@ axios.post("http://localhost:5000/resumejsondata",filedownlink)
                         <label className="control-label" htmlFor="file">Select The Resume:</label>
                         <div className="col-sm-10">
                           <input type="file" name="file" onChange={this.file_change} className="form-control" accept=".pdf,.doc,.docx,.txt" required id="file"/>
-                          {info}
+                          <span className="text-success" id="success">Data Uploaded Successfully</span>
+                          <span className="text-danger" id="failure">Server Error Occured</span>
                         </div>
                       </div>
                       <div className="form-group">
                         <div className="col-sm-offset-2 col-sm-9">
-                          <button type="submit" disabled={this.state.loading} className="btn btn-success">Submit</button>
-                            {loader}
+                          <button type="submit" className="btn btn-success">Submit</button>
+                            <div id="spinner">
+                            <img className="loading" id="loading" src="./Components/Data/loading.gif" />
+                            </div>
                         </div>
                       </div>
                  </form>

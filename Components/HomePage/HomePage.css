@@ -7,3 +7,6 @@
   width: 200px;
   height: 100px;
 }
+#spinner, #success ,#failure{
+  display: none;
+}
