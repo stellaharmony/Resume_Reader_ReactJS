@@ -6,19 +6,19 @@ class Header extends Component{
   constructor(props) {
        super(props);
     };
-  
+
    render(){
       return(
 
          <div>
-            <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+            <nav className="navbar bg-dark navbar-dark">
                 <ul className="navbar-nav">
                 <li className="nav-item active">
                 <h2 className="text-light">Brain Change Knowledge Academy</h2>
                 </li>
                 </ul>
             </nav>
-            <div>
+            <div className="container">
             <HomePage/>
             </div>
         </div>

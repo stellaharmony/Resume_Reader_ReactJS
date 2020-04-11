@@ -30,6 +30,9 @@ getauth(){
     console.log("cloud",res.data);
   })
 }
+componentDidUpdate(){
+
+}
 
    componentDidMount(){
       this.getresume();
@@ -38,6 +41,7 @@ getauth(){
         $('#table_id').DataTable({
         dom: 'Bfrtip',
         destroy:true,
+        responsive: true,
         buttons: [
           'copyHtml5',
           'excelHtml5',
@@ -93,7 +97,7 @@ axios.post("http://localhost:5000/resumejsondata",filedownlink)
         email:param.parsed.general_info.email,
         phone:param.parsed.general_info.mobile,
         linkedin:param.parsed.general_info.linkedin,
-        no_images:2,
+        no_images:param.text.photo_b64.length,
         no_text_lines:3,
         no_text_characters:4,
         font_family:"Anyfont",
@@ -101,12 +105,31 @@ axios.post("http://localhost:5000/resumejsondata",filedownlink)
         no_tables:4
   }
   axios.post('http://localhost:3000/resdata', resume)
-  .then(res => this.setState({loading:false}));
+  .then(res =>
+     this.setState(prevState => ({
+     loading: !prevState.loading
+   }))
+
+   )
+  .catch(function (err) {
+      console.log(err);
+        this.setState(prevState => ({
+        loading: !prevState.loading
+      }));
+  });
 });
 // this.setState({loading:false});
 }
 
    render(){
+     let info='';
+     let loader='';
+     if(this.state.loading)
+     {
+       loader=<img className="loading" src="./Components/Data/loading.gif" />;
+     }else{
+       loader='';
+     }
 
       return(
          <div>
@@ -117,12 +140,13 @@ axios.post("http://localhost:5000/resumejsondata",filedownlink)
                         <label className="control-label" htmlFor="file">Select The Resume:</label>
                         <div className="col-sm-10">
                           <input type="file" name="file" onChange={this.file_change} className="form-control" accept=".pdf,.doc,.docx,.txt" required id="file"/>
+                          {info}
                         </div>
                       </div>
                       <div className="form-group">
                         <div className="col-sm-offset-2 col-sm-9">
                           <button type="submit" disabled={this.state.loading} className="btn btn-success">Submit</button>
-                            { this.state.loading && <img className="loading" src="./Components/Data/loading.gif" /> }
+                            {loader}
                         </div>
                       </div>
                  </form>
