@@ -1,12 +1,15 @@
 .Absolute-Center.is-Responsive {
-  margin: 0 auto;
-  width:80%;
+    margin: 0 auto;
+    width: 80%;
 }
 
 .loading {
-  width: 200px;
-  height: 100px;
+    width: 200px;
+    height: 100px;
 }
-#spinner, #success ,#failure{
-  display: none;
+
+#spinner,
+#success,
+#failure {
+    display: none;
 }

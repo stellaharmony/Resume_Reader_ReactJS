@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2020 at 01:28 PM
+-- Generation Time: Apr 12, 2020 at 07:58 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.40
 
@@ -46,8 +46,8 @@ CREATE TABLE `resume_data` (
 --
 
 INSERT INTO `resume_data` (`name`, `email`, `phone`, `linkedin`, `no_images`, `no_text_lines`, `no_text_characters`, `font_family`, `font_size`, `no_tables`) VALUES
-('Mark Diggens', 'abc@yamoo.com', '2335555446', '', 0, 3, 4, 'Anyfont', 3, 4),
-('Mark Diggens', 'abc@yamoo.com', '2335555446', '', 0, 3, 4, 'Anyfont', 3, 4);
+('Mark Diggens', 'abc@yamoo.com', '2335555446', '', 0, 3, 4, 'Anyfont3', 3, 0),
+('ABC. ERR', '', '576857687', '', 0, 3, 4, 'Anyfont3', 3, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

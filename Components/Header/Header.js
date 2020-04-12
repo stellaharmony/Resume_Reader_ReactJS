@@ -9,19 +9,19 @@ class Header extends Component{
 
    render(){
       return(
-
-         <div>
+        <div>
             <nav className="navbar bg-dark navbar-dark">
                 <ul className="navbar-nav">
-                <li className="nav-item active">
-                <h2 className="text-light">Brain Change Knowledge Academy</h2>
-                </li>
+                    <li className="nav-item active">
+                        <img src="./Components/Data/academy_logo.jpg" id="logo" />
+                        <h2 className="text-light">Brain Change Knowledge Academy</h2>
+                    </li>
                 </ul>
             </nav>
             <div className="container">
-            <HomePage/>
+                <HomePage />
             </div>
-        </div>
+       </div>
       );
    }
 }
